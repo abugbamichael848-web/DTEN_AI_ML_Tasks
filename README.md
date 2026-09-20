@@ -34,12 +34,12 @@ Trains and evaluates a classifier to predict flower species from measurements.
 Petal length and petal width are by far the most predictive features. *Setosa* is perfectly
 separable; most confusion happens between *versicolor* and *virginica*.
 
-**Files (in `task1_classification/`):** `classify_iris_final.py`, `Iris_kaggle.csv`, `confusion_matrix.png`,
+**Files (in `TASK_1/`):** `classify_iris_final.py`, `Iris_kaggle.csv`, `confusion_matrix.png`,
 `model_comparison.png`, `feature_importance.png`, `results_summary.txt`
 
 **Run it:**
 ```bash
-cd task1_classification
+cd TASK_1
 pip install scikit-learn pandas numpy matplotlib seaborn
 python classify_iris_final.py
 ```
@@ -74,13 +74,13 @@ struggles most to identify the **neutral** class (~0.4 precision/recall), which 
 subtle tone rather than obvious sentiment words. A context-aware model (e.g. a fine-tuned
 transformer like BERT) would likely do noticeably better.
 
-**Files (in `task2_sentiment/`):** `sentiment_analysis.py`, `train_text.txt`, `train_labels.txt`, `test_text.txt`,
+**Files (in `TASK_2/`):** `sentiment_analysis.py`, `train_text.txt`, `train_labels.txt`, `test_text.txt`,
 `test_labels.txt`, `mapping.txt`, `confusion_matrix.png`, `model_comparison.png`,
 `class_distribution.png`, `results_summary.txt`
 
 **Run it:**
 ```bash
-cd task2_sentiment
+cd TASK_2
 pip install scikit-learn pandas numpy matplotlib seaborn nltk
 python sentiment_analysis.py
 ```
@@ -94,7 +94,7 @@ Wraps the Task 1 Iris classification model in a lightweight **Flask** API with a
 
 **Setup & Run:**
 ```bash
-cd task3_deployment
+cd TASK_3
 pip install flask joblib scikit-learn pandas numpy
 python train_and_save_model.py   # trains & saves the model artifacts
 python app.py                    # starts the API at http://127.0.0.1:5000
@@ -117,9 +117,9 @@ curl -X POST http://127.0.0.1:5000/predict \
 ```
 
 Full documentation, more example requests (all 3 species + error handling), and Postman
-instructions are in [`task3_deployment/README.md`](task3_deployment/README.md).
+instructions are in [`TASK_3/README.md`](TASK_3/README.md).
 
-**Files (in `task3_deployment/`):** `app.py`, `train_and_save_model.py`, `iris_model.joblib`,
+**Files (in `TASK_3/`):** `app.py`, `train_and_save_model.py`, `iris_model.joblib`,
 `iris_scaler.joblib`, `iris_label_encoder.joblib`, `Iris_kaggle.csv`, `README.md`
 
 ---
@@ -129,14 +129,14 @@ instructions are in [`task3_deployment/README.md`](task3_deployment/README.md).
 ```
 your-repo/
 ├── README.md
-├── task1_classification/
+├── TASK_1/
 │   ├── classify_iris_final.py
 │   ├── Iris_kaggle.csv
 │   ├── confusion_matrix.png
 │   ├── model_comparison.png
 │   ├── feature_importance.png
 │   └── results_summary.txt
-├── task2_sentiment/
+├── TASK_2/
 │   ├── sentiment_analysis.py
 │   ├── train_text.txt
 │   ├── train_labels.txt
@@ -147,7 +147,7 @@ your-repo/
 │   ├── model_comparison.png
 │   ├── class_distribution.png
 │   └── results_summary.txt
-└── task3_deployment/
+└── TASK_3/
     ├── app.py
     ├── train_and_save_model.py
     ├── iris_model.joblib
