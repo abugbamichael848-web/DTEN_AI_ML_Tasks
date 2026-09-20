@@ -1,20 +1,5 @@
 """
 TASK 1: Classification Model on a Standard Dataset
-Dataset : Iris Species dataset from Kaggle (https://www.kaggle.com/datasets/uciml/iris)
-Library : Scikit-learn
-
-Steps:
-1. Load the dataset downloaded from Kaggle (Iris.csv)
-2. Preprocess the data (train/test split + feature scaling)
-3. Train classification model(s)
-4. Evaluate performance: accuracy, precision, recall, confusion matrix
-5. Save plots + results summary
-
-HOW TO GET THE DATA:
-1. Go to https://www.kaggle.com/datasets/uciml/iris
-2. Click "Download" (downloads archive.zip)
-3. Unzip it -> Iris.csv
-Place Iris.csv in the same folder as this script (see MAIN_DATA_FILE below).
 """
 
 import os
@@ -38,9 +23,8 @@ RANDOM_STATE = 42
 KAGGLE_DATASET = "uciml/iris"  # https://www.kaggle.com/datasets/uciml/iris
 MAIN_DATA_FILE = "Iris_kaggle.csv"  # Iris.csv downloaded from Kaggle
 
-# ---------------------------------------------------------------
-# 1. LOAD DATA (downloaded from Kaggle)
-# ---------------------------------------------------------------
+
+# 1. LOAD DATA (downloaded from Kaggle
 print("=" * 60)
 print("STEP 1: LOADING DATASET DOWNLOADED FROM KAGGLE")
 print("=" * 60)
@@ -57,9 +41,8 @@ print(f"Dataset shape: {df.shape}")
 print(df.head())
 print(f"\nClass balance:\n{df['Species'].value_counts()}\n")
 
-# ---------------------------------------------------------------
+
 # 2. PREPROCESS: train/test split + scaling
-# ---------------------------------------------------------------
 print("=" * 60)
 print("STEP 2: PREPROCESSING")
 print("=" * 60)
@@ -81,9 +64,7 @@ X_test_scaled = scaler.transform(X_test)
 
 print(f"Train set: {X_train.shape[0]} samples | Test set: {X_test.shape[0]} samples\n")
 
-# ---------------------------------------------------------------
 # 3. TRAIN MODELS
-# ---------------------------------------------------------------
 print("=" * 60)
 print("STEP 3: TRAINING MODELS")
 print("=" * 60)
@@ -115,9 +96,8 @@ best_name = max(results, key=lambda k: results[k]["accuracy"])
 best = results[best_name]
 print(f"Best model: {best_name} (accuracy={best['accuracy']:.4f})")
 
-# ---------------------------------------------------------------
+
 # 4. EVALUATE + PLOTS
-# ---------------------------------------------------------------
 print("\n" + "=" * 60)
 print("STEP 4: EVALUATION PLOTS")
 print("=" * 60)
@@ -155,9 +135,8 @@ plt.tight_layout()
 plt.savefig("feature_importance.png", dpi=150)
 plt.close()
 
-# ---------------------------------------------------------------
+
 # 5. SAVE RESULTS SUMMARY
-# ---------------------------------------------------------------
 with open("results_summary.txt", "w") as f:
     f.write("TASK 1: Classification Model on a Standard Dataset\n")
     f.write(f"Dataset source: Kaggle - '{KAGGLE_DATASET}' (Iris.csv)\n\n")

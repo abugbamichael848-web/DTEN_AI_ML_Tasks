@@ -1,13 +1,13 @@
-<<<<<<< HEAD
 # AI & Machine Learning Task Submission
 
-Two end-to-end machine learning mini-projects, covering the full workflow from raw data to
-evaluated model: dataset selection, preprocessing, training, evaluation, and reporting.
+Three end-to-end machine learning mini-projects, covering the full workflow from raw data to
+a deployed model: dataset selection, preprocessing, training, evaluation, reporting, and API deployment.
 
 | Task | Type | Dataset | Best Model | Accuracy |
 |---|---|---|---|---|
 | [Task 1](#task-1-classification-model-on-a-standard-dataset) | Classification | Iris Species (Kaggle) | Logistic Regression | 93.3% |
 | [Task 2](#task-2-sentiment-analysis-on-text-data) | Sentiment Analysis (NLP) | TweetEval Sentiment (Cardiff NLP) | Logistic Regression | 51.7% |
+| [Task 3](#task-3-deploy-a-model-as-a-simple-web-api) | Model Deployment | Task 1 model wrapped in a Flask API | — | — |
 
 ---
 
@@ -87,6 +87,43 @@ python sentiment_analysis.py
 
 ---
 
+## Task 3: Deploy a Model as a Simple Web API
+
+Wraps the Task 1 Iris classification model in a lightweight **Flask** API with a single
+`/predict` endpoint.
+
+**Setup & Run:**
+```bash
+cd task3_deployment
+pip install flask joblib scikit-learn pandas numpy
+python train_and_save_model.py   # trains & saves the model artifacts
+python app.py                    # starts the API at http://127.0.0.1:5000
+```
+
+**Example request:**
+```bash
+curl -X POST http://127.0.0.1:5000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2}'
+```
+
+**Example response:**
+```json
+{
+  "input": {"petal_length": 1.4, "petal_width": 0.2, "sepal_length": 5.1, "sepal_width": 3.5},
+  "prediction": "Iris-setosa",
+  "probabilities": {"Iris-setosa": 0.9813, "Iris-versicolor": 0.0187, "Iris-virginica": 0.0}
+}
+```
+
+Full documentation, more example requests (all 3 species + error handling), and Postman
+instructions are in [`task3_deployment/README.md`](task3_deployment/README.md).
+
+**Files (in `task3_deployment/`):** `app.py`, `train_and_save_model.py`, `iris_model.joblib`,
+`iris_scaler.joblib`, `iris_label_encoder.joblib`, `Iris_kaggle.csv`, `README.md`
+
+---
+
 ## Repository Structure
 
 ```
@@ -99,17 +136,25 @@ your-repo/
 │   ├── model_comparison.png
 │   ├── feature_importance.png
 │   └── results_summary.txt
-└── task2_sentiment/
-    ├── sentiment_analysis.py
-    ├── train_text.txt
-    ├── train_labels.txt
-    ├── test_text.txt
-    ├── test_labels.txt
-    ├── mapping.txt
-    ├── confusion_matrix.png
-    ├── model_comparison.png
-    ├── class_distribution.png
-    └── results_summary.txt
+├── task2_sentiment/
+│   ├── sentiment_analysis.py
+│   ├── train_text.txt
+│   ├── train_labels.txt
+│   ├── test_text.txt
+│   ├── test_labels.txt
+│   ├── mapping.txt
+│   ├── confusion_matrix.png
+│   ├── model_comparison.png
+│   ├── class_distribution.png
+│   └── results_summary.txt
+└── task3_deployment/
+    ├── app.py
+    ├── train_and_save_model.py
+    ├── iris_model.joblib
+    ├── iris_scaler.joblib
+    ├── iris_label_encoder.joblib
+    ├── Iris_kaggle.csv
+    └── README.md
 ```
 
 ## Requirements
@@ -121,12 +166,10 @@ numpy
 matplotlib
 seaborn
 nltk
+flask
+joblib
 ```
 
 ## Author
 
 Submitted as part of an AI & Machine Learning task list assignment.
-=======
-# DTEN_AI_ML_Tasks
-Two end-to-end ML projects: (1) a classification model on the Kaggle Iris dataset using Logistic Regression and Random Forest, and (2) a sentiment classifier on TweetEval tweets using NLTK preprocessing and TF-IDF. Includes evaluation metrics, confusion matrices, and written summaries for each.
->>>>>>> 7dcaa8b9d8b35736a9a2d03363aa5d0e8adb3a95
