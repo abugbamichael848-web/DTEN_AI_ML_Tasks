@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI & Machine Learning Task Submission
 
 Two end-to-end machine learning mini-projects, covering the full workflow from raw data to
@@ -125,3 +126,7 @@ nltk
 ## Author
 
 Submitted as part of an AI & Machine Learning task list assignment.
+=======
+# DTEN_AI_ML_Tasks
+Two end-to-end ML projects: (1) a classification model on the Kaggle Iris dataset using Logistic Regression and Random Forest, and (2) a sentiment classifier on TweetEval tweets using NLTK preprocessing and TF-IDF. Includes evaluation metrics, confusion matrices, and written summaries for each.
+>>>>>>> 7dcaa8b9d8b35736a9a2d03363aa5d0e8adb3a95
