@@ -1,0 +1,16 @@
+TASK 1: Classification Model on a Standard Dataset
+Dataset source: Kaggle - 'uciml/iris' (Iris.csv)
+
+--- Logistic Regression ---
+Accuracy : 0.9333
+Precision: 0.9333
+Recall   : 0.9333
+F1-score : 0.9333
+
+--- Random Forest ---
+Accuracy : 0.9000
+Precision: 0.9024
+Recall   : 0.9000
+F1-score : 0.8997
+
+Best model: Logistic Regression
